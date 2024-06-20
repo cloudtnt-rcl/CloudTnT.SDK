@@ -29,7 +29,7 @@ namespace CloudTnT.SDK
         {
             try
             {
-                await PostAsync<NotificationEntity>("notification/get", notification);
+                await PostAsync<NotificationEntity>("notification/create", notification);
             }
             catch (Exception ex)
             {
