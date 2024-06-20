@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudTnT.SDK", "src\CloudTnT.SDK\CloudTnT.SDK.csproj", "{07DFEF5C-4C36-43D1-B657-B56DEC30FAA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudTnT.SDK.Test", "CloudTnT.SDK.Test\CloudTnT.SDK.Test.csproj", "{B308B02F-6541-4650-AA3D-DD96D53380AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A37D294B-DCA8-41E5-BE68-789650925E67}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07DFEF5C-4C36-43D1-B657-B56DEC30FAA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07DFEF5C-4C36-43D1-B657-B56DEC30FAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07DFEF5C-4C36-43D1-B657-B56DEC30FAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07DFEF5C-4C36-43D1-B657-B56DEC30FAA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B308B02F-6541-4650-AA3D-DD96D53380AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B308B02F-6541-4650-AA3D-DD96D53380AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B308B02F-6541-4650-AA3D-DD96D53380AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B308B02F-6541-4650-AA3D-DD96D53380AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7AC804FD-4670-4174-B652-751D8AC3929A}
+	EndGlobalSection
+EndGlobal
