@@ -2,7 +2,7 @@
 
 namespace CloudTnT.SDK
 {
-    public class NotificationService : ApiRequestBase, INotificationService
+    internal class NotificationService : ApiRequestBase, INotificationService
     {
         private readonly IOptions<ApiOptions> _apiOptions;
 

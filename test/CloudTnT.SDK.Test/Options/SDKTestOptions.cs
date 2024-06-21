@@ -2,7 +2,7 @@
 
 namespace CloudTnT.SDK.Test
 {
-    public class NotificationTestOptions
+    public class SDKTestOptions
     {
         public string username { get; set; }
         public string idtoken { get; set; }

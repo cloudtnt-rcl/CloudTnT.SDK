@@ -15,7 +15,8 @@ namespace CloudTnT.SDK.Test
 
             services.AddCloudTnTNotificationConnectorServices();
             services.ConfigureCloudTnTApiOptions(options => Configuration.Bind("API", options));
-            services.ConfigureCloudTnTNotificationTestOptions(options => Configuration.Bind("User", options));
+            services.ConfigureCloudTnTSDKTestOptions(options => Configuration.Bind("User", options));
+            services.AddCloudTnTDIDServices();
 
             return services.BuildServiceProvider();
         }

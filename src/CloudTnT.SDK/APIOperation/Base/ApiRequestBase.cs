@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace CloudTnT.SDK
 {
-    public abstract class ApiRequestBase
+    internal abstract class ApiRequestBase
     {
         protected static readonly HttpClient _client;
         private readonly IOptions<ApiOptions> _apiOptions;
