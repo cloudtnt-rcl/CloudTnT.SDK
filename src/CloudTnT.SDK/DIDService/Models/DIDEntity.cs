@@ -33,5 +33,9 @@ namespace CloudTnT.SDK
         [JsonPropertyOrder(6)]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string idToken { get; set; }
+
+        [JsonPropertyOrder(7)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string didDocument { get; set; }
     }
 }

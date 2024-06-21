@@ -42,7 +42,41 @@ namespace CloudTnT.SDK.Test
         }
 
         [TestMethod]
-        public async Task GetDIDTest()
+        public async Task CreateDIDWebTest()
+        {
+            try
+            {
+                DIDEntity newDIDEntity = await CreateDIDWebAsync();
+
+                Assert.AreEqual(_testOptions.Value.username, newDIDEntity.userName);
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message;
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public async Task SaveDIDWebTest()
+        {
+            try
+            {
+                DIDEntity newDIDEntity = await CreateDIDWebAsync();
+
+                DIDEntity savedDIDEntity = await _didService.SaveDIDWebAsync(newDIDEntity);
+
+                Assert.AreEqual(_testOptions.Value.username, savedDIDEntity.userName);
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message;
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public async Task GetDIDByUsernameTest()
         {
             try
             {
@@ -54,7 +88,30 @@ namespace CloudTnT.SDK.Test
 
                 List<DIDEntity> didEntities = await _didService.GetDIDAsync("username", didEntityRequest);
 
-                Assert.AreNotEqual(0,didEntities.Count);
+                Assert.AreNotEqual(0, didEntities.Count);
+
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message;
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public async Task GetDIDByDIDTest()
+        {
+            try
+            {
+                DIDEntity didEntityRequest = new DIDEntity
+                {
+                    did = "did:web:cloudtnt.com",
+                    idToken = _testOptions.Value.idtoken
+                };
+
+                List<DIDEntity> didEntities = await _didService.GetDIDAsync("did", didEntityRequest);
+
+                Assert.AreNotEqual(0, didEntities.Count);
 
             }
             catch (Exception ex)
@@ -72,7 +129,7 @@ namespace CloudTnT.SDK.Test
                 DIDEntity didEntityRequest = new DIDEntity
                 {
                     idToken = _testOptions.Value.idtoken,
-                    did = "did:jwk:eyJraWQiOiI2OTY2OWM0ZTI4YmM0ZWQ5Iiwia3R5IjoiUlNBIiwiZSI6IkFRQUIiLCJuIjoib1BpK09CUE4wN3Q5TWU1MzBYU3FzUW5LUnJucCtQNk5Wa2JqdzBJT0p0K0dYYkl6VHFpakp1U0lVYS9raG83L0xva2JtSmphR2IwVDJYYzFVZTJUMEs4WHVPekpwN3AweGtqM094NXArYUZWSUl6T0RhK05zQUc5QWxOZUdqeHVKRmFFdlVGUE8rRU4rcnVwMEFJRndSRkxpam85MFNVZjZHUGEwMUdIbXNpb0U0bGJtRHZlUkdhajE1dzlEcHZQYVl4UlhhRy9SV295dFg2REFScURSbm02WWZtZ3FiTTBkSDg3eENWMEdmdEU1Z2FsN1BhWmFvblpra01xUnJwd3lnSVdmMkdCU2thVkV6S2N5TTdIZnprZTYwbm5TdTlBWncwWkxKM0FhLzg0YnozT05FK01tRmF5VWNoVW1IZFg1aEFkYXRRUjhUWTh4LzN0bkpnWVRRPT0ifQ"
+                    did = "did:web:cloudtnt.com"
                 };
 
                 await _didService.DeleteDIDAsync(didEntityRequest);
@@ -83,6 +140,28 @@ namespace CloudTnT.SDK.Test
             {
                 string err = ex.Message;
                 Assert.Fail();
+            }
+        }
+
+        private async Task<DIDEntity> CreateDIDWebAsync()
+        {
+            try
+            {
+                DIDEntity didEntityRequest = new DIDEntity
+                {
+                    userName = _testOptions.Value.username,
+                    uuid = _testOptions.Value.uuid,
+                    idToken = _testOptions.Value.idtoken,
+                    did = "did:web:cloudtnt.com"
+                };
+
+                DIDEntity newDIDEntity = await _didService.CreateDIDWebAsync(didEntityRequest);
+
+                return newDIDEntity;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

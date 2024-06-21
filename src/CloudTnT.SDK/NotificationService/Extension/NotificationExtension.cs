@@ -5,7 +5,7 @@ namespace CloudTnT.SDK
 {
     public static class NotificationExtension
     {
-        public static IServiceCollection AddCloudTnTNotificationConnectorServices(this IServiceCollection services)
+        public static IServiceCollection AddCloudTnTNotificationServices(this IServiceCollection services)
         {
             services.TryAddTransient<INotificationService, NotificationService>();
 
