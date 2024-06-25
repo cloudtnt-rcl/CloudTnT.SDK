@@ -28,6 +28,22 @@ namespace CloudTnT.SDK
             return _did;
         }
 
+        public async Task<DIDEntity> CreateDIDJwkAsync(DIDEntity did)
+        {
+            DIDEntity _did = new DIDEntity();
+
+            try
+            {
+                _did = await PostAsync<DIDEntity, DIDEntity>("did/create/didjwk", did);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return _did;
+        }
+
         public async Task<DIDEntity> SaveDIDWebAsync(DIDEntity did)
         {
             DIDEntity _did = new DIDEntity();
@@ -35,6 +51,22 @@ namespace CloudTnT.SDK
             try
             {
                 _did = await PostAsync<DIDEntity, DIDEntity>("did/save/didweb", did);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return _did;
+        }
+
+        public async Task<DIDEntity> SaveDIDJwkAsync(DIDEntity did)
+        {
+            DIDEntity _did = new DIDEntity();
+
+            try
+            {
+                _did = await PostAsync<DIDEntity, DIDEntity>("did/save/didjwk", did);
             }
             catch (Exception ex)
             {
